@@ -1,28 +1,30 @@
-/* .App {
-  text-align: center;
-} */
-
 * {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
 
 body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background: #333;
-  color: hsl(200, 100%, 90%);
-  max-width: 400px;
-  padding: 1rem;
-  margin: 0 auto;
 }
 
-.check {
-  width: 50px;
-  /*Desired width*/
-  height: 50px;
-  /*Desired height*/
+
+
+.center-box {
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
 .todo-form {
+
   display: flex;
   flex-direction: column;
   justify-content: start;

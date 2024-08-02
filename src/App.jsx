@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import TodoItem from "./todo_item";
-import "./App.css";
+// import "./App.css";
+import "./a.css";
+
 export default function App() {
   const inputRef = useRef(null);
   const [todoMap, setTodoMap] = useState({});
@@ -65,24 +67,26 @@ export default function App() {
   }
   return (
     <>
-      <h1>Todo App</h1>
-      <div className="todo-form">
-        <label htmlFor="item"></label>
-        <input ref={inputRef} type="text" id="item" />
-        <button onClick={addTodo} className="btn">
-          {editedTodo ? "Edit Todo" : "Add Todo"}
-        </button>
+      <div className="center-box">
+        <h1>Todo App</h1>
+        <div className="todo-form">
+          <label htmlFor="item"></label>
+          <input ref={inputRef} type="text" id="item" />
+          <button onClick={addTodo} className="btn">
+            {editedTodo ? "Edit Todo" : "Add Todo"}
+          </button>
+        </div>
+        <ul className="header">
+          {Object.values(todoMap).map((todo) => (
+            <TodoItem
+              todo={todo}
+              onEdit={() => editTodo(todo)}
+              onDelete={() => deleteTodo(todo)}
+              onChecked={() => toggleTodo(todo)}
+            ></TodoItem>
+          ))}
+        </ul>
       </div>
-      <ul className="header">
-        {Object.values(todoMap).map((todo) => (
-          <TodoItem
-            todo={todo}
-            onEdit={() => editTodo(todo)}
-            onDelete={() => deleteTodo(todo)}
-            onChecked={() => toggleTodo(todo)}
-          ></TodoItem>
-        ))}
-      </ul>
     </>
   );
 }
